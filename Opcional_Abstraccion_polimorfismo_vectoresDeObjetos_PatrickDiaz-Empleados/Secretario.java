@@ -11,9 +11,9 @@ public class Secretario extends Empleado{
 
 	public boolean incrementarSalario(){
 		boolean confirmacion = false;
-		double salarioActual = super.salario
+		double salarioAnterior = super.salario
 		
-		super.salario += salarioActual + (salarioActual * INCREMENTO_SALARIO_ANUAL);
+		super.salario += salarioAnterior + (salarioAnterior * INCREMENTO_SALARIO_ANUAL);
 	}
 
 	public String toString(){
