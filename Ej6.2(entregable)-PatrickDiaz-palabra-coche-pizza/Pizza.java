@@ -2,13 +2,30 @@ public class Pizza{
 	private String codigo;
 	private String tipo;
 	private double radio;
-	private Ingrediente[] ingredientes;
 
-	public Pizza(String codigo, String tipo, double radio, Ingrediente[] ingredientes){
+	public Pizza(String codigo, String tipo, double radio){
 		this.codigo = codigo;
 		this.tipo = tipo;
 		this.radio = radio;
-		this.ingredientes = ingredientes;
+	}
+
+	public String getCodigo(){
+		return codigo;
+	}
+	public String getTipo(){
+		return tipo;
+	}
+	public double getRadio(){
+		return radio;
+	}
+	public void setCodigo(String codigo){
+		this.codigo = codigo;
+	}
+	public void setTipo(String tipo){
+		this.tipo = tipo;
+	}
+	public void setRadio(double radio){
+		this.radio = radio;
 	}
 	
 	public double calcularArea(){
@@ -43,28 +60,7 @@ public class Pizza{
 		return precioFinal;
 	}
 
-	public boolean agregarIngrediente(Ingrediente ing){
-		boolean	confirmacion = false;
-
-		for (int i = 0; i<ingredientes.length && !confirmacion; i++){
-			if (ingredientes[i] == null){
-				ingredientes[i] = ing;
-				confirmacion = true;
-			}
-		}
-
-		return confirmacion;
-	}
-
-	public boolean removerIngrediente(String nombre){
-		boolean confirmacion = false;
-
-		for (int i = 0; i<ingredientes.length && !confirmacion; i++){
-			if (ingredientes[i].getNombre().equals(nombre)){
-				ingredientes[i] = null;
-				confirmacion = true;
-			}
-		}
-		return confirmacion;
+	public String toString(){
+		return "Codigo: " +  codigo + ", Tipo: " + tipo + ", Radio: " + radio;
 	}
 }
