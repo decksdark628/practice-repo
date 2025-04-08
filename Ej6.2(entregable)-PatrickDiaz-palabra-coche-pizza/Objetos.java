@@ -9,27 +9,27 @@ public class Objetos implements ManipularEnLista{
 		return listaDeObjetos;
 	}
 
-	public boolean guardarObjeto(Object obj){
+	public boolean guardarObjeto(Object obj, int posicion){
 		boolean confirmacion = false;
 		
-		for (int i = 0; i < listaDeObjetos.length; i++){
-			if (listaDeObjetos[i] == null && !confirmacion){
-				listaDeObjetos[i] = obj;
-				confirmacion = true;
-			}
+		if (posicion >= 0 && posicion <= listaDeObjetos.length && listaDeObjetos[posicion] == null){
+			listaDeObjetos[posicion] = obj;
+			confirmacion = true;
 		}
-
 		return confirmacion;
 	}
 
 	public Object obtenerObjeto(int indice){
-		return listaDeObjetos[indice]; 
+		if (indice >= 0 && indice <= listaDeObjetos.length)
+			return listaDeObjetos[indice]; 
+		else
+			return null;
 	}
 
 	public boolean eliminarObjeto(int indice){
 		boolean confirmacion = false;
 
-		if (listaDeObjetos[indice] != null){
+		if (indice >= 0 && indice <= listaDeObjetos.length && listaDeObjetos[indice] != null){
 			listaDeObjetos[indice] = null;
 			confirmacion = true;
 		}
